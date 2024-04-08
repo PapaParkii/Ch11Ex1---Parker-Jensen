@@ -21,13 +21,16 @@ namespace Ch11Ex1TempManager.Controllers
         [HttpPost]
         public IActionResult Add(Temp temp)
         {
-            if (ModelState.IsValid) {
+            if (ModelState.IsValid)
+            {
                 data.Temps.Add(temp);
                 data.SaveChanges();
 
                 return RedirectToAction("Index");
-            } 
-            else {
+            }
+            else
+            {
+                ModelState.AddModelError(string.Empty, "Please correct all errors");
                 return View(temp);
             }
         }
