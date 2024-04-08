@@ -23,9 +23,15 @@ namespace Ch11Ex1TempManager.Controllers
         {
             if (ModelState.IsValid)
             {
+      
+                if (data.Temps.Any(t => t.Date == temp.Date))
+                {
+                    ModelState.AddModelError(nameof(temp.Date), "The date already exists in the database.");
+                    return View(temp);
+                }
+
                 data.Temps.Add(temp);
                 data.SaveChanges();
-
                 return RedirectToAction("Index");
             }
             else
