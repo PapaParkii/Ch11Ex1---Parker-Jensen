@@ -1,17 +1,17 @@
-﻿@model Temp
+﻿@model TempManager.Models.Temp
 
 @{
     ViewData["Title"] = "Add";
 }
 
-<h2 class="p-2">Add temp</h2>
+<h2>Add temp</h2>
 
-<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+<div asp-validation-summary="All" class="text-danger"></div>
 
 <form asp-action="Add" method="post">
     <div class="form-group">
         <label asp-for="Date"></label>
-        <input asp-for="Date" type="text" class="form-control" />
+        <input asp-for="Date" type="date" class="form-control" />
         <span asp-validation-for="Date" class="text-danger"></span>
     </div>
     <div class="form-group">
@@ -25,14 +25,11 @@
         <span asp-validation-for="High" class="text-danger"></span>
     </div>
 
-    <input type="hidden" asp-for="Id" />
-
-    <button type="submit" class="btn btn-dark mr-2">Add</button>
-    <a asp-action="Index" class="btn btn-dark">Cancel</a>
+    <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 
 @section scripts {
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation/1.19.3/jquery.validate.min.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.5.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.12/jquery.validate.unobtrusive.min.js"></script>
 }
